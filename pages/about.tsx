@@ -1,3 +1,5 @@
+import { MainLayout } from '@/components/layout';
+import { AdminLayout } from '@/components/layout';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -16,9 +18,7 @@ export default function AboutPage(props: AboutPageProps) {
     router.push(
       {
         pathname: '/about',
-        query: {
-          page: (Number(page) || 1) + 1,
-        },
+        query: { page: (Number(page) || 1) + 1 },
       },
       undefined,
       { shallow: true },
@@ -50,6 +50,8 @@ export default function AboutPage(props: AboutPageProps) {
     </div>
   );
 }
+
+AboutPage.Layout = AdminLayout;
 
 export async function getStaticProps() {
   return {
